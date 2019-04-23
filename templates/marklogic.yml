@@ -1,0 +1,166 @@
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: marklogic-0
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: marklogic
+spec:
+  ports:
+  - port: 7997
+    name: health-check
+  - port: 7998
+    name: cluster-port
+  - port: 7999
+    name: cluster-port2
+  - port: 8000
+    name: app-services
+  - port: 8001
+    name: admin
+  - port: 8002
+    name: manage
+  clusterIP: None
+  selector:
+    app: marklogic
+    statefulset.kubernetes.io/pod-name: marklogic-0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: marklogic-1
+  namespace:  {{ .Release.Namespace }}
+  labels:
+    app: marklogic
+spec:
+  ports:
+  - port: 7997
+    name: health-check
+  - port: 7998
+    name: cluster-port
+  - port: 7999
+    name: cluster-port2
+  - port: 8000
+    name: app-services
+  - port: 8001
+    name: admin
+  - port: 8002
+    name: manage
+  clusterIP: None
+  selector:
+    app: marklogic
+    statefulset.kubernetes.io/pod-name: marklogic-1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: marklogic-2
+  namespace:  {{ .Release.Namespace }}
+  labels:
+    app: marklogic
+spec:
+  ports:
+  - port: 7997
+    name: health-check
+  - port: 7998
+    name: cluster-port
+  - port: 7999
+    name: cluster-port2
+  - port: 8000
+    name: app-services
+  - port: 8001
+    name: admin
+  - port: 8002
+    name: manage
+  clusterIP: None
+  selector:
+    app: marklogic
+    statefulset.kubernetes.io/pod-name: marklogic-2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: marklogic-srv-headless
+  namespace:  {{ .Release.Namespace }}
+  labels:
+    app: marklogic
+spec:
+  ports:
+  - port: 7997
+    name: health-check
+  - port: 7998
+    name: cluster-port
+  - port: 7999
+    name: cluster-port2
+  - port: 8000
+    name: app-services
+  - port: 8001
+    name: admin
+  - port: 8002
+    name: manage
+  clusterIP: None
+  selector:
+    app: marklogic
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: marklogic
+  namespace:  {{ .Release.Namespace }}
+spec:
+  serviceName: "marklogic-srv-headless"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: marklogic
+  template:
+    metadata:
+      labels:
+        app: marklogic
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: 'marklogic'
+          image: docker-apollo.wolterskluwer.io/glxy/glxy-ml-k8s:test-v1
+          imagePullPolicy: Always
+          command: ["/opt/entry-point.sh"]
+          ports:
+            - containerPort: 7997
+              name: health-check
+            - containerPort: 7998
+              name: cluster-port
+            - containerPort: 7999
+              name: cluster-port2
+            - containerPort: 8000
+              name: app-services
+            - containerPort: 8001
+              name: admin
+            - containerPort: 8002
+              name: manage
+          lifecycle:
+            preStop:
+              exec:
+                # SIGTERM triggers a quick exit; gracefully terminate instead
+                command: ["/etc/init.d/MarkLogic stop"]
+          volumeMounts:
+            - name: ml-data
+              mountPath: /var/opt/MarkLogic
+            - name:  marklogic-share
+              mountPath: /var/shared-data 
+      imagePullSecrets:
+      - name: registry-secret
+      volumes:
+          - name: marklogic-share
+            persistentVolumeClaim:
+                claimName: marklogic-shared-data
+  volumeClaimTemplates:
+    - metadata:
+        name: ml-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        storageClassName: "aws-ebs-sc"
+        resources:
+          requests:
+            storage: 10Gi
