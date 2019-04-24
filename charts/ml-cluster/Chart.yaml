@@ -3,6 +3,7 @@ appVersion: "1.0"
 description: Marklogic 3-node cluster
 name: ml-cluster
 version: 0.1.0
+icon: http://www.freelogovectors.net/wp-content/uploads/2018/05/marklogic-logo.png
 maintainers:
 - name: David Vanheeswijck
   email: david.vanheeswijck@wolterskluwer.com
