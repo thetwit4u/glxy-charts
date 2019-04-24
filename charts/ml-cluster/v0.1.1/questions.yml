@@ -1,0 +1,101 @@
+categories:
+- Database
+questions:
+- variable: adminEmail
+  default: "david.vanheeswijck@wolterskluwer.com"
+  description: "Administrator of the cluster"
+  type: string
+  required: true
+  label: Administrator email
+  group: "General"
+- variable: nodePort.healthCheck7997
+  default: 30101
+  description: "Health Check port"
+  type: int
+  required: true
+  label: Health Check
+  group: "Nodeports"
+- variable: nodePort.appService8000
+  default: 30102
+  description: "App Services port"
+  type: int
+  required: true
+  label: App Services
+  group: "Nodeports"
+- variable: nodePort.admin8001
+  default: 30103
+  description: "Admin port"
+  type: int
+  required: true
+  label: Admin Port
+  group: "Nodeports"
+- variable: nodePort.manage8002
+  default: 30104
+  description: "Manage port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3031
+  default: 30111
+  description: "Rest Service 3031 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3032
+  default: 30112
+  description: "Rest Service 3032 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3033
+  default: 30113
+  description: "Rest Service 3033 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3034
+  default: 30114
+  description: "Rest Service 3034 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3035
+  default: 30115
+  description: "Rest Service 3035 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3036
+  default: 30116
+  description: "Rest Service 3036 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3037
+  default: 30117
+  description: "Rest Service 3037 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3038
+  default: 30118
+  description: "Rest Service 3038 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"
+- variable: nodePort.restSrv3038
+  default: 30118
+  description: "Rest Service 3038 port"
+  type: int
+  required: true
+  label: Manage Port
+  group: "Nodeports"

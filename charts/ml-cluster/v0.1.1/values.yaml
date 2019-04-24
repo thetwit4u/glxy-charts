@@ -1,0 +1,21 @@
+# Default values for ml-3n-cluster.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+adminEmail: david.vanheeswijck@wolterskluwer.com 
+registrySecret: registry-secret
+persistentVolumeClaimShare: marklogic-shared-data
+storageClassNodeVolume: aws-ebs-sc
+nodePort:
+  healthCheck7997: 30101
+  appService8000: 30102
+  admin8001: 30103
+  manage8002: 30104
+  restSrv3031: 30111
+  restSrv3032: 30112
+  restSrv3033: 30113
+  restSrv3034: 30114
+  restSrv3035: 30115
+  restSrv3036: 30116
+  restSrv3037: 30117
+  restSrv3038: 30118

@@ -1,0 +1,141 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: marklogic-rs-srv
+  namespace: marklogic-tst
+  labels:
+    app: marklogic
+spec:
+  type: NodePort
+  ports:
+  - name: health-check
+    nodePort: {{ .Values.nodePort.healthCheck7997 }}
+    port: 7997
+    protocol: TCP
+    targetPort: health-check
+  - name: app-services
+    nodePort: {{ .Values.nodePort.appService8000 }}
+    port: 8000
+    protocol: TCP
+    targetPort: app-services
+  - name: admin
+    nodePort: {{ .Values.nodePort.admin8001 }}
+    port: 8001
+    protocol: TCP
+    targetPort: admin
+  - name: manage
+    nodePort: {{ .Values.nodePort.manage8002 }}
+    port: 8002
+    protocol: TCP
+    targetPort: manage
+  - name: rest-srv-3031
+    nodePort: {{ .Values.nodePort.restSrv3031 }}
+    port: 3031
+    protocol: TCP
+    targetPort: rest-srv-3031
+  - name: rest-srv-3032
+    nodePort: {{ .Values.nodePort.restSrv3032 }}
+    port: 3032
+    protocol: TCP
+    targetPort: rest-srv-3032
+  - name: rest-srv-3033
+    nodePort: {{ .Values.nodePort.restSrv3033 }}
+    port: 3033
+    protocol: TCP
+    targetPort: rest-srv-3033
+  - name: rest-srv-3034
+    nodePort: {{ .Values.nodePort.restSrv3034 }}
+    port: 3034
+    protocol: TCP
+    targetPort: rest-srv-3034
+  - name: rest-srv-3035
+    nodePort: {{ .Values.nodePort.restSrv3035 }}
+    port: 3035
+    protocol: TCP
+    targetPort: rest-srv-3035
+  - name: rest-srv-3036
+    nodePort: {{ .Values.nodePort.restSrv3036 }}
+    port: 3036
+    protocol: TCP
+    targetPort: rest-srv-3036
+  - name: rest-srv-3037
+    nodePort: {{ .Values.nodePort.restSrv3037 }}
+    port: 3037
+    protocol: TCP
+    targetPort: rest-srv-3037
+  - name: rest-srv-3038
+    nodePort: {{ .Values.nodePort.restSrv3038 }}
+    port: 3038
+    protocol: TCP
+    targetPort: rest-srv-3038
+  selector:
+    app: marklogic-rs
+---
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: marklogic-rs
+  namespace: marklogic-tst
+  labels:
+    app: marklogic-rs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: marklogic-rs
+  template:
+    metadata:
+      labels:
+        app: marklogic-rs
+    spec:
+    # Which port on the node is the service available through?
+      containers:
+      - image: docker-apollo.wolterskluwer.io/glxy/glxy-ml-nginx:test-v52
+        imagePullPolicy: Always
+        name: marklogic-rs
+        ports:
+        - containerPort: 7997
+          name: health-check
+          protocol: TCP
+        - containerPort: 8000
+          name: app-services
+          protocol: TCP
+        - containerPort: 8001
+          name: admin
+          protocol: TCP
+        - containerPort: 8002
+          name: manage
+          protocol: TCP
+        - containerPort: 3031
+          name: rest-srv-3031
+          protocol: TCP
+        - containerPort: 3032
+          name: rest-srv-3032
+          protocol: TCP
+        - containerPort: 3033
+          name: rest-srv-3033
+          protocol: TCP
+        - containerPort: 3034
+          name: rest-srv-3034
+          protocol: TCP
+        - containerPort: 3035
+          name: rest-srv-3035
+          protocol: TCP
+        - containerPort: 3036
+          name: rest-srv-3036
+          protocol: TCP
+        - containerPort: 3037
+          name: rest-srv-3037
+          protocol: TCP
+        - containerPort: 3038
+          name: rest-srv-3038
+          protocol: TCP
+        
+        # Uncomment the lines below to enable extensive logging and/or customization of
+        # NGINX configuration with configmaps
+        args:
+         #- -v=3
+         #- -nginx-configmaps=default/nginx-config
+      imagePullSecrets:
+      - name: registry-secret
