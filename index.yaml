@@ -1,3 +1,16 @@
 apiVersion: v1
-entries: {}
-generated: 2019-04-24T12:10:43.873157+02:00
+entries:
+  ml-cluster:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2019-04-24T12:45:05.284582+02:00
+    description: Marklogic 3-node cluster
+    digest: 3e5d5282b6a5d4a8dfb4cf19ea5bb904fdc2db29f1bc01fd556842249afb84da
+    maintainers:
+    - email: david.vanheeswijck@wolterskluwer.com
+      name: David Vanheeswijck
+    name: ml-cluster
+    urls:
+    - ml-cluster-0.1.0.tgz
+    version: 0.1.0
+generated: 2019-04-24T12:45:05.282251+02:00
