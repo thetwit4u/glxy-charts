@@ -1,0 +1,10 @@
+categories:
+- Database
+questions:
+- variable: adminEmail
+  default: "david.vanheeswijck@wolterskluwer.com"
+  description: "Administrator of the cluster"
+  type: string
+  required: true
+  label: Administrator email
+  group: "General"

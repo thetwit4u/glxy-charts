@@ -149,18 +149,18 @@ spec:
             - name:  marklogic-share
               mountPath: /var/shared-data 
       imagePullSecrets:
-      - name: registry-secret
+      - name: {{ .Values.registrySecret }}
       volumes:
           - name: marklogic-share
             persistentVolumeClaim:
-                claimName: marklogic-shared-data
+                claimName: {{ .Values.persistentVolumeClaimShare }}
   volumeClaimTemplates:
     - metadata:
         name: ml-data
       spec:
         accessModes:
         - ReadWriteOnce
-        storageClassName: "aws-ebs-sc"
+        storageClassName: "{{ .Values.storageClassNodeVolume}}"
         resources:
           requests:
             storage: 10Gi
