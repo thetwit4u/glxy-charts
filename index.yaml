@@ -3,10 +3,10 @@ entries:
   ml-cluster:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-24T12:47:26.543222+02:00
+    created: 2019-04-24T12:52:59.810256+02:00
     description: Marklogic 3-node cluster
-    digest: b21bb8282052aa53bc9eba39d914c913d28a47427fcc7b36c6b5e6b73230fcf0
-    icon: http://www.freelogovectors.net/wp-content/uploads/2018/05/marklogic-logo.png
+    digest: 9574261776d71d5c0e8ab9785a5fe3bdf4fe7a56f22189f4742cd9ab6247373d
+    icon: https://dv-website.s3.amazonaws.com/uploads/2018/08/ml.jpg
     maintainers:
     - email: david.vanheeswijck@wolterskluwer.com
       name: David Vanheeswijck
@@ -14,4 +14,4 @@ entries:
     urls:
     - ml-cluster-0.1.0.tgz
     version: 0.1.0
-generated: 2019-04-24T12:47:26.542457+02:00
+generated: 2019-04-24T12:52:59.809599+02:00
