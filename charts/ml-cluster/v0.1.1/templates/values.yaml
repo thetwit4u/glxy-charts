@@ -1,9 +1,0 @@
-# Default values for ml-3n-cluster.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-adminEmail: david.vanheeswijck@wolterskluwer.com 
-registrySecret: registry-secret
-persistentVolumeClaimShare: marklogic-shared-data
-storageClassNodeVolume: aws-ebs-sc
-nodePortGroupId: 1
