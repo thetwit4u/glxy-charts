@@ -9,62 +9,62 @@ spec:
   type: NodePort
   ports:
   - name: health-check
-    nodePort: 30{{ .Values.nodePortGroupNr }}01
+    nodePort: 30{{ .Values.nodePortGroupId }}01
     port: 7997
     protocol: TCP
     targetPort: health-check
   - name: app-services
-    nodePort: 30{{ .Values.nodePortGroupNr }}02
+    nodePort: 30{{ .Values.nodePortGroupId }}02
     port: 8000
     protocol: TCP
     targetPort: app-services
   - name: admin
-    nodePort: 30{{ .Values.nodePortGroupNr }}03
+    nodePort: 30{{ .Values.nodePortGroupId }}03
     port: 8001
     protocol: TCP
     targetPort: admin
   - name: manage
-    nodePort: 30{{ .Values.nodePortGroupNr }}04
+    nodePort: 30{{ .Values.nodePortGroupId }}04
     port: 8002
     protocol: TCP
     targetPort: manage
   - name: rest-srv-3031
-    nodePort: 30{{ .Values.nodePortGroupNr }}11
+    nodePort: 30{{ .Values.nodePortGroupId }}11
     port: 3031
     protocol: TCP
     targetPort: rest-srv-3031
   - name: rest-srv-3032
-    nodePort: 30{{ .Values.nodePortGroupNr }}12
+    nodePort: 30{{ .Values.nodePortGroupId }}12
     port: 3032
     protocol: TCP
     targetPort: rest-srv-3032
   - name: rest-srv-3033
-    nodePort: 30{{ .Values.nodePortGroupNr }}13
+    nodePort: 30{{ .Values.nodePortGroupId }}13
     port: 3033
     protocol: TCP
     targetPort: rest-srv-3033
   - name: rest-srv-3034
-    nodePort: 30{{ .Values.nodePortGroupNr }}14
+    nodePort: 30{{ .Values.nodePortGroupId }}14
     port: 3034
     protocol: TCP
     targetPort: rest-srv-3034
   - name: rest-srv-3035
-    nodePort: 30{{ .Values.nodePortGroupNr }}15
+    nodePort: 30{{ .Values.nodePortGroupId }}15
     port: 3035
     protocol: TCP
     targetPort: rest-srv-3035
   - name: rest-srv-3036
-    nodePort: 30{{ .Values.nodePortGroupNr }}16
+    nodePort: 30{{ .Values.nodePortGroupId }}16
     port: 3036
     protocol: TCP
     targetPort: rest-srv-3036
   - name: rest-srv-3037
-    nodePort: 30{{ .Values.nodePortGroupNr }}17
+    nodePort: 30{{ .Values.nodePortGroupId }}17
     port: 3037
     protocol: TCP
     targetPort: rest-srv-3037
   - name: rest-srv-3038
-    nodePort: 30{{ .Values.nodePortGroupNr }}18
+    nodePort: 30{{ .Values.nodePortGroupId }}18
     port: 3038
     protocol: TCP
     targetPort: rest-srv-3038

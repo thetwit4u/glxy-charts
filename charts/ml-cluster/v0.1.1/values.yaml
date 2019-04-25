@@ -6,4 +6,5 @@ adminEmail: david.vanheeswijck@wolterskluwer.com
 registrySecret: registry-secret
 persistentVolumeClaimShare: marklogic-shared-data
 storageClassNodeVolume: aws-ebs-sc
-nodePortGroupNr: 1
+nfsServer: 
+nodePortGroupId: 1

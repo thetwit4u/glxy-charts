@@ -8,14 +8,14 @@ questions:
   required: true
   label: Administrator email
   group: "General"
-- variable: nodePortGroupNr
+- variable: nodePortGroupId
   default: 1
   min: 1
   max: 9
-  description: "Network group nr (1-9). Results in nodeport assigments for ML System ports (30x01-30x04) and Rest Services (30x11-30x18)"
+  description: "Network group Id (1-9). Results in nodeport assigments for ML System ports (30x01-30x04) and Rest Services (30x11-30x18)"
   type: int
   required: true
-  label: Health Check
+  label: Network Group Id
   group: "Network"
 - variable: storageClassNodeVolume
   default: "aws-ebs-sc"
