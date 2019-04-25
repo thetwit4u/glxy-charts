@@ -160,7 +160,7 @@ spec:
       spec:
         accessModes:
         - ReadWriteOnce
-        storageClassName: "{{ .Values.storageClassNodeVolume}}"
+        storageClassName: {{ .Values.storageClassNodeVolume }}
         resources:
           requests:
             storage: 10Gi

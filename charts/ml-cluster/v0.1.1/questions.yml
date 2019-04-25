@@ -25,7 +25,6 @@ questions:
   label: Storage Class (local volumes)
   group: "Storage"
 - variable: nfsServer
-  default: ""
   description: "NFS server to be used for the shared volume in the cluster"
   type: string
   required: true
