@@ -9,4 +9,6 @@ storageClassNodeVolume: aws-ebs-sc
 nfsServer: nfsserver
 nodePortGroupId: 1
 ResourcesLimitsCPU: 2
+ResourcesLimitsMemory: 3072Mi
 ResourcesRequestsCPU: 1
+ResourcesRequestsMemory: 2048Mi

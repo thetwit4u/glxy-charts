@@ -126,8 +126,10 @@ spec:
           resources:
             limits:
               cpu: "{{ .Values.ResourcesLimitsCPU }}"
+              memory: "{{ .Values.ResourcesLimitsMemory }}"
             requests:
               cpu: "{{ .Values.ResourcesRequestsCPU }}"
+              memory: "{{ .Values.ResourcesRequestsMemory }}"
           imagePullPolicy: Always
           command: ["/opt/entry-point.sh"]
           ports:
