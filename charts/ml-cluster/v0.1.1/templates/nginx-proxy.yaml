@@ -91,7 +91,7 @@ spec:
     spec:
     # Which port on the node is the service available through?
       containers:
-      - image: docker-apollo.wolterskluwer.io/glxy/glxy-ml-nginx:test-v52
+      - image: docker-apollo.wolterskluwer.io/glxy/glxy-ml-nginx:1.0.0
         imagePullPolicy: Always
         name: marklogic-rs
         ports:
