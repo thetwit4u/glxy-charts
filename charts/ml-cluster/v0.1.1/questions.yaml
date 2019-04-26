@@ -8,6 +8,13 @@ questions:
   required: true
   label: Administrator email
   group: "General"
+- variable: registrySecret
+  default: "registry-secret"
+  description: "Registry Secret for docker-apollo.wolterskluwer.io access"
+  type: string
+  required: true
+  label: Registry Secret
+  group: "General"
 - variable: nodePortGroupId
   default: 1
   min: 1
