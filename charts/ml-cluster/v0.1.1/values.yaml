@@ -8,3 +8,5 @@ persistentVolumeClaimShare: marklogic-shared-data
 storageClassNodeVolume: aws-ebs-sc
 nfsServer: nfsserver
 nodePortGroupId: 1
+ResourcesLimitsCPU: 2
+ResourcesRequestsCPU: 1

@@ -123,6 +123,11 @@ spec:
       containers:
         - name: 'marklogic'
           image: docker-apollo.wolterskluwer.io/glxy/glxy-ml-k8s:9.0-9.1
+          resources:
+            limits:
+              cpu: "{{ .Values.ResourcesLimitsCPU }}"
+            requests:
+              cpu: "{{ .Values.ResourcesRequestsCPU }}"
           imagePullPolicy: Always
           command: ["/opt/entry-point.sh"]
           ports:

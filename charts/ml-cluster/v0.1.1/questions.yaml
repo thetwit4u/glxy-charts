@@ -15,6 +15,38 @@ questions:
   required: true
   label: Registry Secret
   group: "General"
+- variable: ResourcesRequestsCPU
+  default: 1
+  description: "Request CPU setting for each node"
+  type: enum
+  options:
+    - "0.5"
+    - "1"
+    - "1.5"
+    - "2"
+    - "2.5"
+    - "3"
+    - "3.5"
+    - "4"
+  required: true
+  label: Request CPU
+  group: "Resources"
+- variable: ResourcesLimitsCPU
+  default: 2
+  description: "Limit CPU setting for each node"
+  type: enum
+  options:
+    - "0.5"
+    - "1"
+    - "1.5"
+    - "2"
+    - "2.5"
+    - "3"
+    - "3.5"
+    - "4"
+  required: true
+  label: Limit CPU
+  group: "Resources"
 - variable: nodePortGroupId
   default: 1
   min: 1
