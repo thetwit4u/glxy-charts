@@ -28,6 +28,10 @@ questions:
     - "3"
     - "3.5"
     - "4"
+    - "6"
+    - "8"
+    - "12"
+    - "16"
   required: true
   label: Request CPU
   group: "Resources"
@@ -61,6 +65,10 @@ questions:
     - "3"
     - "3.5"
     - "4"
+    - "6"
+    - "8"
+    - "12"
+    - "16"
   required: true
   label: Limit CPU
   group: "Resources"
