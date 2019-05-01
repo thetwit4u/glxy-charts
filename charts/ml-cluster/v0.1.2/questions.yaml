@@ -1,0 +1,121 @@
+categories:
+- Database
+questions:
+- variable: adminEmail
+  default: "david.vanheeswijck@wolterskluwer.com"
+  description: "Administrator of the cluster"
+  type: string
+  required: true
+  label: Administrator email
+  group: "General"
+- variable: registrySecret
+  default: "registry-secret"
+  description: "Registry Secret for docker-apollo.wolterskluwer.io access"
+  type: string
+  required: true
+  label: Registry Secret
+  group: "General"
+
+- variable: isSingleNode
+  defaults: false
+  description: "If single node only 1 node will be deployed else a 3-node cluster"
+  type: boolean
+  required: true
+  label: single node
+  group: "General"
+- variable: ResourcesRequestsCPU
+  default: 1
+  description: "Request CPU setting for each node"
+  type: enum
+  options:
+    - "0.5"
+    - "1"
+    - "1.5"
+    - "2"
+    - "2.5"
+    - "3"
+    - "3.5"
+    - "4"
+    - "6"
+    - "8"
+    - "12"
+    - "16"
+  required: true
+  label: Request CPU
+  group: "Resources"
+- variable: ResourcesRequestsMemory
+  default: "2048Mi"
+  description: "Request Memory setting for each node"
+  type: enum
+  options:
+    - "515Mi"
+    - "1024Mi"
+    - "2048Mi"
+    - "3072Mi"
+    - "4096Mi"
+    - "8192Mi"
+    - "16384Mi"
+    - "32768Mi"
+    - "65536Mi"
+  required: true
+  label: Request Memory
+  group: "Resources"
+- variable: ResourcesLimitsCPU
+  default: 2
+  description: "Limit CPU setting for each node"
+  type: enum
+  options:
+    - "0.5"
+    - "1"
+    - "1.5"
+    - "2"
+    - "2.5"
+    - "3"
+    - "3.5"
+    - "4"
+    - "6"
+    - "8"
+    - "12"
+    - "16"
+  required: true
+  label: Limit CPU
+  group: "Resources"
+- variable: ResourcesLimitsMemory
+  default: "3072Mi"
+  description: "Limits Memory setting for each node"
+  type: enum
+  options:
+    - "515Mi"
+    - "1024Mi"
+    - "2048Mi"
+    - "3072Mi"
+    - "4096Mi"
+    - "8192Mi"
+    - "16384Mi"
+    - "32768Mi"
+    - "65536Mi"
+  required: true
+  label: Limits Memory
+  group: "Resources"
+- variable: nodePortGroupId
+  default: 1
+  min: 1
+  max: 9
+  description: "Network group Id (1-9). Results in nodeport assigments for ML System ports (30x01-30x04) and Rest Services (30x11-30x18)"
+  type: int
+  required: true
+  label: Network Group Id
+  group: "Network"
+- variable: storageClassNodeVolume
+  default: "aws-ebs-sc"
+  description: "Storage class to be used for the local volume of each node"
+  type: string
+  required: true
+  label: Storage Class (local volumes)
+  group: "Storage"
+- variable: nfsServer
+  description: "NFS server to be used for the shared volume in the cluster"
+  type: string
+  required: true
+  label: NFS Server (shared volume)
+  group: "Storage"
