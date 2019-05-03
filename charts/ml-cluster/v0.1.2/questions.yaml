@@ -56,6 +56,7 @@ questions:
     - "8192Mi"
     - "16384Mi"
     - "32768Mi"
+    - "49152Mi"
     - "65536Mi"
   required: true
   label: Request Memory
@@ -93,6 +94,7 @@ questions:
     - "8192Mi"
     - "16384Mi"
     - "32768Mi"
+    - "49152Mi"
     - "65536Mi"
   required: true
   label: Limits Memory
