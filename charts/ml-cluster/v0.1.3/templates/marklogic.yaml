@@ -153,14 +153,18 @@ spec:
           volumeMounts:
             - name: ml-data
               mountPath: /var/opt/MarkLogic
+            {{ if .Values.nfsServer }}
             - name:  marklogic-share
               mountPath: /var/shared-data 
+            {{ end }}
       imagePullSecrets:
       - name: {{ .Values.registrySecret }}
+      {{ if .Values.nfsServer }}
       volumes:
           - name: marklogic-share
             persistentVolumeClaim:
                 claimName: {{ .Values.persistentVolumeClaimShare }}
+      {{ end }}
   volumeClaimTemplates:
     - metadata:
         name: ml-data

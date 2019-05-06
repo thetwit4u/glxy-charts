@@ -129,6 +129,6 @@ questions:
 - variable: nfsServer
   description: "NFS server to be used for the shared volume in the cluster"
   type: string
-  required: true
+  required: false
   label: NFS Server (shared volume)
   group: "Storage"
