@@ -1,3 +1,4 @@
+{{ if .Values.nfsServer }}
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -34,3 +35,4 @@ spec:
 selector:
     matchLabels:
       name: "{{ .Release.Namespace }}-pv"
+{{ end }}
