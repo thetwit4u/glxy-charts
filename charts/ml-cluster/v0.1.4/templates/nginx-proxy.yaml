@@ -138,4 +138,4 @@ spec:
          #- -v=3
          #- -nginx-configmaps=default/nginx-config
       imagePullSecrets:
-      - name: registry-secret
+      - name: {{ .Values.registrySecret }}
